@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ManageStudentsV2.Models.Giao_vien>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_ManageStudentHome.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ten_giao_vien)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Khoa.ten_khoa)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ten_giao_vien)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Khoa.ten_khoa)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ma_giao_vien }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ma_giao_vien }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ma_giao_vien })
+        </td>
+    </tr>
+}
+
+</table>

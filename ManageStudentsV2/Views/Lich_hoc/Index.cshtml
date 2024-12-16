@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ManageStudentsV2.Models.Lich_hoc>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_ManageStudentHome.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.thoi_gian)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phong_hoc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lop_hoc_phan.ma_hoc_phan)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.thoi_gian)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phong_hoc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lop_hoc_phan.ma_hoc_phan)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ma_lich }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ma_lich }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ma_lich })
+        </td>
+    </tr>
+}
+
+</table>
